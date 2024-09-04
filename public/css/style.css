@@ -1,0 +1,149 @@
+body{
+    font-family: "Plus Jakarta Sans",sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+ 
+/* navbar */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass{
+    color:#fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+
+.f-info-links{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links:hover{
+    text-decoration: underline;
+}
+.f-info-links, .f-info-socials, .f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    font-size: 1.6rem;
+    margin-right: 1.4rem;
+}
+.f-info{
+    /* text-align: center; */
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    margin-bottom: 0px;
+}
+.fa-brands{
+    cursor: pointer;
+    transition: ease-in-out .4s;
+}
+
+.fa-brands:hover{
+    color: black;
+    transform: scale(1.4);
+}
+
+.listing-card,.show-card{
+    border: none !important;
+    margin-bottom: 2rem;
+    transition: ease-out .5s;
+}
+
+.list-card:hover{
+    transform: scale(1.03);
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    /* aspect-ratio: 1/1; */
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn,.edit-btn{
+    color: white !important;
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* show page */
+
+
+/* .show-card-img{
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+    background-size: contain;
+    border: 2px solid black;
+    display: none;
+} */
+
+.show-img{
+    height: 35vh;
+}
+
+.show-card img{
+    transition: ease-out .3s;
+}
+.show-card img:hover{
+    transform: scale(1.01);
+}
+
+.btns{
+    display: flex;
+}
+
+.edit-img{
+    /* border: 1px solid black; */
+    height: 200px;
+    width: 200px;
+}
+
+.edit-img img{
+    /* border: 1px solid black; */
+    width: 100% ;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.5px);
+}
+
+#map {
+    height:400px;
+    width:80vh;
+}
