@@ -23,7 +23,7 @@ const reviewRouter=require("./routes/review.js");
  const userRouter=require("./routes/user.js");
 const { connect } = require('http2');
 
-// const MONGO_URL='mongodb://127.0.0.1:27017/wanderlust';   
+const MONGO_URL='mongodb://127.0.0.1:27017/wanderlust';   
 const dbUrl=process.env.ATLASDB_URL;
 
 main()
@@ -35,7 +35,7 @@ main()
 }); 
 
 async function main(){
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(MONGO_URL);
 } 
 
 app.set("view engine","ejs");
@@ -46,7 +46,7 @@ app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
 
 const store=MongoStore.create({
-    mongoUrl:dbUrl,
+    mongoUrl:MONGO_URL,
     crypto:{
         secret: process.env.SECRET,
     },
@@ -99,7 +99,9 @@ app.use((req,res,next)=>{
 //     let registeredUser=await User.register(fakeUser,"abhinav");
 //     res.send(registeredUser);
 // })
-app.use("/",listingRouter);
+app.get("/",async(req,res)=>{
+   res.redirect("/listings");
+});
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
@@ -111,7 +113,7 @@ app.all("*",(req,res,next)=>{
 
 app.use((err,req,res,next)=>{
     let { statusCode=500,message="something went wrong"}=err;
-    // console.log(err);
+    console.log(err);
     res.status(statusCode).render("error.ejs",{message});
     // res.status(statusCode).send(message);
 })
